@@ -746,7 +746,6 @@ static void lcm_init(void)
 	else if (version_id == 0x21)
 		ili9882_vendor = ILI9882_VENDOR_GUOXIAN;
 		
-	pr_err("#### LCM init vendor = %d ####", ili9882_vendor);
 	//printk("%s,ili9882 0xda version_id=0x%x,ili9882_vendor:%d\n", __func__, version_id,ili9882_vendor);
 
 	if(ili9882_vendor == ILI9882_VENDOR_HUAXIAN)
@@ -765,8 +764,6 @@ extern int ili_sleep_handler(int mode);
 
 static void lcm_suspend(void)
 {
-
-	pr_err("#### LCM suspend ####");
 	if(tpd_load_status)
 	{
 		ili_sleep_handler(TP_DEEP_SLEEP_BEFORE_LCD);
@@ -782,7 +779,6 @@ static void lcm_suspend(void)
 
 static void lcm_resume(void)
 {
-	pr_err("#### LCM resume ####");
 	lcm_init();
 	MDELAY(30);
 }
